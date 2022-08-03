@@ -19,13 +19,23 @@ def read_txt_file(file_name):
 def split_txt_file(text):
     '''
     '''
-    return txt.split('\n')[:-1]
+    return text.split('\n')[:-1]
     
 
 
 def count_tasks(todo_list):
     '''
-    count items 
+    count items overall or by group
+    
+    Parameters
+    ----------
+    todo_list : list or dictionary
+        todo list as a list or a grouped todo list as a dictionary 
+        
+        
+    Returns
+    --------
+    count 
     '''
     counters_by_type = {list:lambda l: len(l),
                        dict: lambda d: {k:len(v) for k,v in d.items()}
@@ -41,7 +51,7 @@ def group_tasks(todo_list, by='project'):
     -----------
     
     '''
-    sybmol = {'project':'+',
+    symbol = {'project':'+',
               'context':'@',
               'due_date':'due:'}
     num_chars = {k:len(v) for k,v in symbol.items()}
@@ -56,13 +66,36 @@ def group_tasks(todo_list, by='project'):
     grouped_tasks['none'] = []
     
     for task in todo_list: 
-        if by in task:
-            cur_key = [w[n:] for w in task.split() if w[:n] == symbol[by]]
-            grouped_task[cur_key].append(task)
+        if symbol[by] in task:
+            cur_key = [w[n:] for w in task.split() if w[:n] == symbol[by]][0]
+            grouped_tasks[cur_key].append(task)
         else: 
             grouped_tasks['none'].append(task)
+            
+    return grouped_tasks
+    
+def grouped_to_list(grouped_tasks,order_dicts=None,ascending=False ):
+    '''
+    take grouped tasks and put them back to a list, optionally ordered dictionary
     
     
+    Parameters 
+    -----------
+    grouped_tasks : dict 
+        
+    '''
+    
+    if order_dicts:
+        key_order = sorted(order_dicts,reverse=not(ascending))
+    else:
+        key_order = grouped_tasks.keys()
+        
+    out_list = []
+    
+    for key in key_order:
+        out_list.extend(grouped_tasks[key])
+        
+    return out_list
     
     
 def search_code_file(file_name, comment_type = '#'):
