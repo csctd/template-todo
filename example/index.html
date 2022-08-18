@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyTodo Bricks &#8212; pyTodo Bricks</title>
+    <title>Example &#8212; pyTodo Bricks</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -94,7 +94,7 @@
 
 <li class="toctree-l1 current active nav-item">
  <a class="current reference internal nav-link" href="#">
-  pyTodo Bricks
+  Example
  </a>
 </li>
 
@@ -168,11 +168,72 @@
               
               <article class="bd-article" role="main">
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pytodo-bricks">
-<h1>pyTodo Bricks<a class="headerlink" href="#pytodo-bricks" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="example">
+<h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h1>
+<p>In this page, we demonstrate using some components</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">todobricks</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For this toy example, we’ll write the todo file out from there first and then read it back in.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toy_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x post example +todobricks @code due:2022-08-18&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;x document bricks +todobricks @code due:2022-08-17&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;write sample function doc strings @prismia +todobricks&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;write up answers to questions +tdadmin @prismia&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can write it out</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todobricks</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">toy_list</span><span class="p">,</span><span class="s1">&#39;todo.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1730</span><span class="o">/</span><span class="mf">798021696.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">todobricks</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="n">toy_list</span><span class="p">,</span><span class="s1">&#39;todo.txt&#39;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/todobricks/todo.py</span> in <span class="ni">write_file</span><span class="nt">(todo_list, file_name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="o">-------</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="s1">&#39;&#39;&#39;</span>
+<span class="ne">--&gt; </span><span class="mi">216</span><span class="s1">     with open(file_name,&#39;r&#39;) as f:</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span><span class="s1">         for item in todo_list:</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span><span class="s1">             f.write(item)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;todo.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>and we can read it in</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todobricks</span><span class="o">.</span><span class="n">read_txt_file</span><span class="p">(</span><span class="s1">&#39;todo.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To save it to a variable to use it, we use assignment</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list_read</span> <span class="o">=</span> <span class="n">todobricks</span><span class="o">.</span><span class="n">read_txt_file</span><span class="p">(</span><span class="s1">&#39;todo.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we can split it to be able to work with it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list</span> <span class="o">=</span> <span class="n">todobricks</span><span class="o">.</span><span class="n">split_txt_file</span><span class="p">(</span><span class="n">todo_list_read</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
