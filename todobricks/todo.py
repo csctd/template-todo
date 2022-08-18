@@ -213,7 +213,7 @@ def write_file(todo_list,file_name):
     Returns
     -------
     '''
-    with open(file_name,'r') as f:
+    with open(file_name,'w') as f:
         for item in todo_list:
             f.write(item)
 
