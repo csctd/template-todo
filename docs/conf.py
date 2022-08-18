@@ -19,6 +19,8 @@ extensions = [
     "myst_nb",
     'sphinx.ext.intersphinx',
     "sphinx_panels",
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon'
 ]
 
 # "sphinxext.rediraffe",
