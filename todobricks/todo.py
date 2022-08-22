@@ -107,6 +107,10 @@ def group_tasks(todo_list, by='project'):
 
     Parameters
     -----------
+    todo_list : list
+        todo list to work with
+    by : {'project', 'context', or 'due_date'}
+        type of content to group by
 
     '''
     symbol = {'project':'+',
