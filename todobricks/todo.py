@@ -216,6 +216,7 @@ def write_file(todo_list,file_name):
     with open(file_name,'w') as f:
         for item in todo_list:
             f.write(item)
+            f.write('\n')
 
 
 def remove_complete_tasks(todo_list):
