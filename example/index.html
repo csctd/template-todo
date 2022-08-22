@@ -218,10 +218,89 @@
 </div>
 </div>
 </div>
+<p>This still looks like before</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list_read</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;x post example +todobricks @code due:2022-08-18x document bricks +todobricks @code due:2022-08-17write sample function doc strings @prismia +todobrickswrite up answers to questions +tdadmin @prismia&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <p>Then we can split it to be able to work with it</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list</span> <span class="o">=</span> <span class="n">todobricks</span><span class="o">.</span><span class="n">split_txt_file</span><span class="p">(</span><span class="n">todo_list_read</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now we can look at it again:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This we can check the type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">todo_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can count the tasks</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todobricks</span><span class="o">.</span><span class="n">count_tasks</span><span class="p">(</span><span class="n">todo_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also group items by context</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todobricks</span><span class="o">.</span><span class="n">group_tasks</span><span class="p">(</span><span class="n">todo_list</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;context&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;none&#39;: []}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This returns a dictionary</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">todo_by_context</span> <span class="o">=</span> <span class="n">todobricks</span><span class="o">.</span><span class="n">group_tasks</span><span class="p">(</span><span class="n">todo_list</span><span class="p">,</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;context&quot;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">todo_by_context</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
 </pre></div>
 </div>
 </div>

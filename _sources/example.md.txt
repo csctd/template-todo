@@ -46,9 +46,50 @@ To save it to a variable to use it, we use assignment
 ```{code-cell} ipython3
 todo_list_read = todobricks.read_txt_file('todo.txt')
 ```
+This still looks like before
+
+```{code-cell} ipython3
+todo_list_read
+```
 
 Then we can split it to be able to work with it
 
 ```{code-cell} ipython3
 todo_list = todobricks.split_txt_file(todo_list_read)
+```
+
+And now we can look at it again:
+
+```{code-cell} ipython3
+todo_list
+```
+
+
+This we can check the type
+
+```{code-cell} ipython3
+type(todo_list)
+```
+
+
+We can count the tasks
+
+```{code-cell} ipython3
+todobricks.count_tasks(todo_list)
+```
+
+
+We can also group items by context
+
+
+```{code-cell} ipython3
+todobricks.group_tasks(todo_list,by="context")
+```
+
+This returns a dictionary
+
+
+```{code-cell} ipython3
+todo_by_context = todobricks.group_tasks(todo_list,by="context")
+type(todo_by_context)
 ```
