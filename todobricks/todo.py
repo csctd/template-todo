@@ -243,5 +243,13 @@ def is_complete(todo_item):
 
     Parameters
     ----------
+    todo_item : string
+        one item from a todolist
+
+    Returns
+    -------
+    is_done : boolean
+        true if the line starts with 'x '
+
     '''
     return todo[:2] == 'x '
