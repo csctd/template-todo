@@ -151,7 +151,7 @@ def grouped_to_list(grouped_tasks,order_dicts=None,ascending=False ):
     if order_dicts:
         key_order = sorted(order_dicts,reverse=not(ascending))
     else:
-        key_order = grouped_tasks.keys()
+        key_order = sorted(grouped_tasks.keys())
 
     out_list = []
 
